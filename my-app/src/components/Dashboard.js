@@ -15,7 +15,7 @@ function Dashboard() {
     }
   };
   const strikesHandler = () => {
-    if (strikes === 3) {
+    if (strikes === 2) {
       setStrikes(0);
     } else {
       setStrikes(strikes + 1);
@@ -25,8 +25,14 @@ function Dashboard() {
     setStrikes(0);
     setBalls(0);
   };
-  const foulsHandler = () => {
-    setFouls(fouls + 1);
+
+  const foul = () => {
+    return strikes === 2 ? null : setStrikes(strikes + 1);
+    // if (strikes === 2) {
+    //   return null;
+    // } else {
+    //   setStrikes(strikes + 1);
+    // }
   };
 
   return (
@@ -55,7 +61,7 @@ function Dashboard() {
       <section className="foulsButton">
         <button
           onClick={() => {
-            foulsHandler();
+            foul();
           }}
           className="fouls"
         >
